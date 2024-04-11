@@ -15,7 +15,7 @@ main:
     mov ebp, esp
 
     mov ecx, ARRAY_SIZE     ; Use ecx as loop counter.
-    xor ebx, ebx            ; Use eax to store the sum.
+    xor ebx, ebx            ; Use ebx to store the sum.
     xor edx, edx            ; Store current value in dl; zero entire edx.
 
 add_byte_array_element:
@@ -27,6 +27,28 @@ add_byte_array_element:
 
 
     ; TODO: Compute sum for elements in word_array and dword_array.
+    xor ebx, ebx            ;golesc ebx ca sa retin suma
+    xor edx, edx            ; Store current value in dx; zero entire edx.
+    mov ecx, ARRAY_SIZE     ; Use ecx as loop counter.
 
+add_word_array_element:
+    mov dx, word [word_array + 2*ecx - 2]
+    add ebx, edx
+    loop add_word_array_element
+
+    PRINTF32 `Array of words sum is %d\n\x0`, ebx
+ 
+
+    xor ebx, ebx            ;golesc ebx ca sa retin suma
+    xor edx, edx            ; Store current value in dx; zero entire edx.
+    mov ecx, ARRAY_SIZE     ; Use ecx as loop counter.
+
+add_dword_array_element:
+    mov edx, dword [dword_array + 4*ecx - 4]
+    add ebx, edx
+    loop add_dword_array_element
+
+    PRINTF32 `Array of dwords sum is %d\n\x0`, ebx
+ 
     leave
     ret
