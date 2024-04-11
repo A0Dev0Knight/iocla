@@ -27,6 +27,25 @@ main:
 
 
    ; TODO: Implement multiplication for dw and dd data types.
+    xor eax, eax
+    xor edx, edx
+    mov ax, word [num1_w]
+    mov bx, word [num2_w]
+    mul bx
+
+    ; Print result in hexa
+    shl edx, 16
+    or eax, edx
+    PRINTF32 `Rezultatul este: %d\n\x0`, eax
+
+
+    mov eax, dword [num1_d]
+    mov ebx, dword [num2_d]
+    mul ebx
+
+    ; Print result in hexa
+    PRINTF32 `Rezultatul este: eax\t %d\n\x0`, eax
+    PRINTF32 `Rezultatul este: edx\t %d\n\x0`, edx
 
     leave
     ret
