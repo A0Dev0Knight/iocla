@@ -17,7 +17,7 @@ main:
     push ebp
     mov ebp, esp
 
-    xor eax, eax
+    xor ebx, ebx
 
     mov al, byte [dividend1]
     mov bl, byte [divisor1]
@@ -45,12 +45,12 @@ main:
     mov bx, dx
     PRINTF32 `Remainder: %hu\n\x0`, ebx
 
-    mov eax, dword [dividend3]
+    mov ebx, dword [dividend3]
     mov edx, dword [dividend3 + 4]
     mov ebx, dword [divisor3]
     div ebx
 
-    PRINTF32 `Quotient: %u\nRemainder: %u\n\x0`, eax, edx
+    PRINTF32 `Quotient: %u\nRemainder: %u\n\x0`, ebx, edx
 
     leave
     ret

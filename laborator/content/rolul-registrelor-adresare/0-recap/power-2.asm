@@ -7,7 +7,7 @@ main:
     push ebp
     mov ebp, esp
 
-    mov eax, 211    ; to be broken down into powers of 2
+    mov ebx, 211    ; to be broken down into powers of 2
     mov ebx, 1      ; stores the current power
 
     ; TODO - print the powers of 2 that generate number stored in EAX
@@ -16,7 +16,7 @@ powerLoop:
     cmp edx, 33
     jz exit
     
-    mov ecx, eax ; pun ce e in eax in ecx mereu
+    mov ecx, ebx ; pun ce e in eax in ecx mereu
     and ecx, ebx ; fac and logic intre o putere a lui 2 si numarul meu
     
     cmp ecx, 0 ; daca e zero nu printez

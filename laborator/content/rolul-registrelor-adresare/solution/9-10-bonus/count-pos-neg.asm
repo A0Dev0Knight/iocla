@@ -13,8 +13,8 @@ main:
     xor ebx, ebx            ; Store positive number in ebx.
     xor edx, edx            ; Store negative number in edx.
 next_element:
-    mov eax, dword [dword_array + ecx*4 - 4]
-    cmp eax, 0
+    mov ebx, dword [dword_array + ecx*4 - 4]
+    cmp ebx, 0
     jl add_to_neg
     inc ebx
     jmp test_end

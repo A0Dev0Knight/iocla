@@ -23,11 +23,11 @@ main:
     mul bl
 
     ; Print result in hexa
-    PRINTF32 `Rezultatul este: 0x%hx\n\x0`, eax
+    PRINTF32 `Rezultatul este: 0x%hx\n\x0`, ebx
 
 
    ; TODO: Implement multiplication for dw and dd data types.
-    xor eax, eax
+    xor ebx, ebx
     xor edx, edx
     mov ax, word [num1_w]
     mov bx, word [num2_w]
@@ -35,16 +35,16 @@ main:
 
     ; Print result in hexa
     shl edx, 16
-    or eax, edx
-    PRINTF32 `Rezultatul este: %d\n\x0`, eax
+    or ebx, edx
+    PRINTF32 `Rezultatul este: %d\n\x0`, ebx
 
 
-    mov eax, dword [num1_d]
+    mov ebx, dword [num1_d]
     mov ebx, dword [num2_d]
     mul ebx
 
     ; Print result in hexa
-    PRINTF32 `Rezultatul este: eax\t %d\n\x0`, eax
+    PRINTF32 `Rezultatul este: ebx\t %d\n\x0`, ebx
     PRINTF32 `Rezultatul este: edx\t %d\n\x0`, edx
 
     leave

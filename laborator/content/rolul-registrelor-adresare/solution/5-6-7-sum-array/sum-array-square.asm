@@ -11,23 +11,23 @@ global main
 main:
     push ebp
     mov ebp, esp
-    xor eax, eax
+    xor ebx, ebx
 
     mov ecx, ARRAY_SIZE
-    xor eax, eax
+    xor ebx, ebx
     xor edx, edx
 
 add_dword_array_element:
-    push eax
-    mov eax, dword [dword_array + 4 * ecx - 4]
+    push ebx
+    mov ebx, dword [dword_array + 4 * ecx - 4]
     mov edx, dword [dword_array + 4 * ecx - 4]
     mul edx
-    mov edx, eax
-    pop eax
-    add eax, edx
+    mov edx, ebx
+    pop ebx
+    add ebx, edx
     loop add_dword_array_element
 
-    PRINTF32 `Array sum is %u\n\x0`, eax
+    PRINTF32 `Array sum is %u\n\x0`, ebx
 
     leave
     ret

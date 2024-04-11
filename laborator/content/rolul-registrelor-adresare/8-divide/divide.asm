@@ -17,7 +17,7 @@ main:
     push ebp
     mov ebp, esp
 
-    xor eax, eax
+    xor ebx, ebx
 
     mov al, byte [dividend1]
     mov bl, byte [divisor1]

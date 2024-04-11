@@ -15,15 +15,15 @@ main:
     mov ebp, esp
 
     mov ecx, ARRAY_SIZE     ; Use ecx as loop counter.
-    xor eax, eax            ; Use eax to store the sum.
+    xor ebx, ebx            ; Use eax to store the sum.
     xor edx, edx            ; Store current value in dl; zero entire edx.
 
 add_byte_array_element:
     mov dl, byte [byte_array + ecx - 1]
-    add eax, edx
+    add ebx, edx
     loop add_byte_array_element ; Decrement ecx, if not zero, add another element.
 
-    PRINTF32 `Array sum is %u\n\x0`, eax
+    PRINTF32 `Array sum is %u\n\x0`, ebx
 
 
     ; TODO: Compute sum for elements in word_array and dword_array.

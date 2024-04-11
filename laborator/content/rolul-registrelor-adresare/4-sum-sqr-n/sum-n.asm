@@ -1,7 +1,7 @@
 %include "../utils/printf32.asm"
 
 section .data
-    num dd 100
+    num dd 3
 
 section .text
 extern printf
@@ -11,10 +11,17 @@ main:
     mov ebp, esp
 
     mov ecx, [num]     ; Use ecx as counter for computing the sum.
-    xor ebx, ebx       ; Use eax to store the sum. Start from 0.
+    xor ebx, ebx       ; Use ebx to store the sum. Start from 0.
 
 add_to_sum:
-    add ebx, ecx
+    ; prepar inmultirea
+    xor eax, eax
+    xor edx, edx
+    ; fac inmultirea
+    mov eax, ecx
+    mul ecx
+    ; adun la suma
+    add ebx, eax
     loop add_to_sum    ; Decrement ecx. If not zero, add it to sum.
 
     mov ecx, [num]
