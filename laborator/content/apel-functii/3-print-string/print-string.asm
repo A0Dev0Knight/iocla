@@ -2,6 +2,7 @@
 
 section .data
     mystring db "This is my string", 0
+    hello db "Hello, World!", 0
 
 section .text
 
@@ -16,6 +17,9 @@ main:
 
 
     ; TODO: call puts on string
-
+    push hello
+    call puts
+    add esp, 4
+    
     leave
     ret
