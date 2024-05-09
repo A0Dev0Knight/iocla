@@ -13,6 +13,18 @@ main:
     sub esp, NUM_FIBO * 4
 
     mov ecx, NUM_FIBO
+
+    mov dword [esp], 0 ; primul element
+    mov dword [esp + 4], 1 ; al doilea elment
+    mov dword [esp + 8], 1 ; al doilea elment
+    mov dword [esp + 12], 2 ; al doilea elment
+    mov dword [esp + 16], 3 ; al doilea elment
+    mov dword [esp + 20], 5 ; al doilea elment
+    mov dword [esp + 24], 8 ; al doilea elment
+    mov dword [esp + 28], 13 ; al doilea elment
+    mov dword [esp + 32], 21 ; al doilea elment
+    mov dword [esp + 36], 34 ; al doilea elment
+
 print:
     mov eax, dword [esp + (ecx - 1) * 4]
     PRINTF32 `%d \x0`, eax
