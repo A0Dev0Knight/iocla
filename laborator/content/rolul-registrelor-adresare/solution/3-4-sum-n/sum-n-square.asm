@@ -14,9 +14,9 @@ main:
     xor ebx, ebx       ; Use ebx to store the sum. Start from 0.
 
 add_to_sum:
-    mov eax, ecx
-    mul eax
-    add ebx, eax
+    mov ebx, ecx
+    mul ebx
+    add ebx, ebx
     loop add_to_sum    ; Decrement ecx. If not zero, add it to sum.
 
     mov ecx, [num]

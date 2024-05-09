@@ -11,12 +11,12 @@ global main
 main:
     mov ecx, ARRAY_SIZE     ; Use ecx as loop counter.
     xor esi, esi            ; Store even number in esi.
-    xor edi, edi            ; Store odd number in edi.
+    xor ebx, ebx            ; Store odd number in edi.
 next_element:
 
     ; We need to initialize the dividend (EDX:EAX) to 0:array_element
     xor edx, edx
-    mov eax, dword [dword_array + ecx*4 - 4]
+    mov ebx, dword [dword_array + ecx*4 - 4]
     ; Store the divisor (2) in EBX.
     mov ebx, 2
     div ebx
@@ -27,10 +27,10 @@ next_element:
     inc esi
     jmp test_end
 add_to_odd:
-    inc edi
+    inc ebx
 test_end:
     loop next_element ; Decrement ecx, if not zero, go to next element.
 
-    PRINTF32 `Num even is %u, num odd is %u\n\x0`, esi, edi
+    PRINTF32 `Num even is %u, num odd is %u\n\x0`, esi, ebx
 
     ret

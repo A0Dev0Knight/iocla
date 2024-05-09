@@ -25,7 +25,7 @@ main:
     ; Print result in hexa
     xor ebx, ebx
     mov bx, ax
-    PRINTF32 `Rezultatul este: 0x%hx\n\x0`, eax
+    PRINTF32 `Rezultatul este: 0x%hx\n\x0`, ebx
 
 
     ; Multiplication for dw
@@ -38,16 +38,16 @@ main:
     mov bx, dx
     xor ebx, ebx
     mov bx, ax
-    PRINTF32 `Rezultatul este: 0x%hx%hx\n\x0`, edx, eax
+    PRINTF32 `Rezultatul este: 0x%hx%hx\n\x0`, edx, ebx
 
 
     ; Multiplication for dd
-    mov eax, dword [num1_d]
+    mov ebx, dword [num1_d]
     mov ebx, dword [num2_d]
     mul ebx
 
     ; Print result in hexa
-    PRINTF32 `Rezultatul este: 0x%x%x\n\x0`, edx, eax
+    PRINTF32 `Rezultatul este: 0x%x%x\n\x0`, edx, ebx
 
     leave
     ret
