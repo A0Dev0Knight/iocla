@@ -16,12 +16,17 @@ get_max:
 
 	mov ebx, [ebp+8]
 	mov ecx, [ebp+12]
+	mov edx, [ebp+16]
 	xor eax, eax
+	xor esi, esi
 
 compare:
 	cmp eax, [ebx+ecx*4-4]
 	jge check_end
 	mov eax, [ebx+ecx*4-4]
+	mov esi, ecx
+	dec esi
+	mov [edx], esi
 check_end:
 	loopnz compare
 
