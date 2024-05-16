@@ -28,15 +28,38 @@ print_reverse_array:
 	xor eax, eax
 
 next:
-
-;   TODO1: Decomentați următoarele două linii comentate
-;   push ecx
+  	push ecx
 	push dword [ebx+ecx*4-4]
 	push format_string
 	call printf
 	add esp, 8
-;   pop ecx
+  	
+	pop ecx
+	
 	loop next
+
+	push newline
+	call printf
+	add esp, 4
+; end of task 1
+
+	; dublam array-ul
+	mov edx, myarray_len
+	mov edx, [edx]
+	push edx
+	push myarray
+	call double_array
+	add esp, 8
+
+	mov ecx, [ebp+12]
+next2:
+  	push ecx
+	push dword [ebx+ecx*4-4]
+	push format_string
+	call printf
+	add esp, 8
+  	pop ecx
+	loop next2
 
 	push newline
 	call printf
